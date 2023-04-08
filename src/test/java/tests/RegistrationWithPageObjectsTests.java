@@ -1,0 +1,34 @@
+package tests;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+
+class RegistrationWithPageObjectsTests extends TestBase {
+
+    @Test
+    void fillFormTest() {
+
+        registrationPage.openPage()
+                .setFirstName("Fedor")
+                .setLastName("Bondarchuk")
+                .setEmail("bodya322@goden.ru")
+                .setGender("Male")
+                .setPhone("8992772000")
+                .setBirthDate("20", "April", "2000")
+                .setSubject("Math")
+                .setHobbies("Sports")
+                .uploadPicture("img/2019-08-04 15.24.58.JPG")
+                .setAddress("Stepanova Street")
+                .selectionState("Uttar Pradesh")
+                .selectionCity("Agra")
+                .clickSubmitButton();
+
+        $(".modal-dialog").shouldBe(Condition.visible);
+//Внести таблицу
+
+    }
+
+}
