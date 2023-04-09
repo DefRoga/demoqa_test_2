@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.checkerframework.checker.units.qual.C;
 import pages.components.CalendarComponent;
+import pages.components.RegistrationResultsModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
+    RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final String TITLE_TEXT = "Student Registration Form";
     private SelenideElement
             firstNameInput = $("#firstName"),
@@ -100,6 +102,14 @@ public class RegistrationPage {
 
     public RegistrationPage clickSubmitButton() {
         submitButton.click();
+        return this;
+    }
+    public RegistrationPage registrationResultsModal() {
+        registrationResultsModal.verifyModalAppear();
+        return this;
+    }
+    public RegistrationPage verifyResult(String key, String value) {
+        registrationResultsModal.verifyResult(key, value);
         return this;
     }
 

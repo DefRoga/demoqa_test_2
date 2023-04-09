@@ -24,11 +24,17 @@ class RegistrationWithPageObjectsTests extends TestBase {
                 .setAddress("Stepanova Street")
                 .selectionState("Uttar Pradesh")
                 .selectionCity("Agra")
-                .clickSubmitButton();
-
-        $(".modal-dialog").shouldBe(Condition.visible);
-//Внести таблицу
-
+                .clickSubmitButton()
+                .registrationResultsModal()
+                .verifyResult("Student Name", "Fedor Bondarchuk")
+                .verifyResult("Student Email","bodya322@goden.ru")
+                .verifyResult("Gender", "Male")
+                .verifyResult("Mobile", "8992772000")
+                .verifyResult("Date of Birth", "20 April,2000")
+                .verifyResult("Subjects", "Math")
+                .verifyResult("Hobbies", "Sports")
+                .verifyResult("Picture", "Picture 2019-08-04 15.24.58.JPG")
+                .verifyResult("Address", "Stepanova Street")
+                .verifyResult("State and City", "Uttar Pradesh Agra");
     }
-
 }
