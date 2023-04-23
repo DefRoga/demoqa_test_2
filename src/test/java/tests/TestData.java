@@ -1,7 +1,6 @@
 package tests;
 
 import com.github.javafaker.Faker;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -12,10 +11,12 @@ public class TestData {
         return faker.options().option(initialValues);
     }
 
+
     private String[] getRandomDate() {
         return new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).
                 format(faker.date().birthday(16, 45)).split(" ");
     }
+
 
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();
@@ -28,8 +29,8 @@ public class TestData {
     String hobbies = getRandomValue("Sports","Reading","Music");
     String address = faker.address().streetAddress();
     String state = getRandomValue("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-
     String city = setCityData(state);
+
 
     public String setCityData(String value) {
         String city = new String();
