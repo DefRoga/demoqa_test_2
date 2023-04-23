@@ -6,10 +6,11 @@ import pages.RegistrationPage;
 
 public class TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData data = new TestData();
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
     }
 }
